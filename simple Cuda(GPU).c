@@ -6,17 +6,14 @@ int main()
 	int deviceCount;
 	cudaDeviceProp deviceProp;
 
-	//Сколько устройств CUDA установлено на PC.
 	cudaGetDeviceCount(&deviceCount);
 
 	printf("Device count: %d\n\n", deviceCount);
 
 	for (int i = 0; i < deviceCount; i++)
 	{
-		//Получаем информацию об устройстве
 		cudaGetDeviceProperties(&deviceProp, i);
 
-		//Выводим иформацию об устройстве
 		printf("Device name: %s\n", deviceProp.name);
 		printf("Total global memory: %d\n", deviceProp.totalGlobalMem);
 		printf("Shared memory per block: %d\n", deviceProp.sharedMemPerBlock);
